@@ -6,6 +6,9 @@ Originally meant to test out some AJAX functionality, but became a test spot for
 - Go serving static sites
 - Go's [default ServeMux and Handlers](https://www.alexedwards.net/blog/an-introduction-to-handlers-and-servemuxes-in-go)
 
+### Learning Lessons
+
+1. Go's default ServeMux doesn't require path prefixing sub-folder content like Gorilla's Mux [does](https://stackoverflow.com/questions/62499380/serving-static-files-in-an-http-server).
 
 #### Mermaid Tests
 
@@ -28,3 +31,6 @@ Originally meant to test out some AJAX functionality, but became a test spot for
     C --> E[Short throw];
     D ----> F[Long throw];
 ```
+
+### Todo
+- [Templates in static sites](https://www.alexedwards.net/blog/serving-static-sites-with-go)
