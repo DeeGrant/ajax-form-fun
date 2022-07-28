@@ -5,6 +5,7 @@ Originally meant to test out some AJAX functionality, but became a test spot for
 - [Mermaid](https://mermaid-js.github.io/mermaid/#/)
 - Go serving static sites
 - Go's [default ServeMux and Handlers](https://www.alexedwards.net/blog/an-introduction-to-handlers-and-servemuxes-in-go)
+- [jQuery](https://www.youtube.com/watch?v=KhtEmR2A1Fw&list=PLWKjhJtqVAbkyK9woUZUtunToLtNGoQHB)
 
 ### Learning Lessons
 
