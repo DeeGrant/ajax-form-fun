@@ -35,8 +35,16 @@ function getDoc() {
         })
 }
 
+function localGet() {
+    $.get("http://localhost:8000/getStuff",
+        function (data, status) {
+            console.log("Data: " + data.things + "\nStatus: " + status)
+        })
+}
+
 $(function () {
     $('#jquery-btn').click(loadDoc2)
     $('#demo3-btn').click(loadDoc3)
     $('#demo-get-btn').click(getDoc)
+    $('#demo-local-get-btn').click(localGet)
 });
