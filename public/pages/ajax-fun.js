@@ -42,9 +42,25 @@ function localGet() {
         })
 }
 
+function localPost() {
+    $.post("http://localhost:8000/postStuff",
+        {
+            things: "Stuff and Things",
+            name: "George",
+            city: "The Jungle"
+        },
+        function (data, status) {
+            console.log("Things: " + data.things +
+                "\nName: " + data.name +
+                "\nCity: " + data.city +
+                "\nStatus: " + status)
+        });
+}
+
 $(function () {
     $('#jquery-btn').click(loadDoc2)
     $('#demo3-btn').click(loadDoc3)
     $('#demo-get-btn').click(getDoc)
     $('#demo-local-get-btn').click(localGet)
+    $('#demo-post-btn').click(localPost)
 });
