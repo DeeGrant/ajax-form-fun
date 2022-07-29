@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX Fun</title>
+    <link rel="stylesheet" href="../assets/style.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/pages/jquery-fun.html">jQuery Fun</a></li>
+            <li><a href="/pages/ajax-fun.html">AJAX Fun</a></li>
+        </ul>
+    </nav>
+    <h1>AJAX Fun</h1>
+    <aside>
+        <h4>Authorization before this demo page will work</h4>
+        <p>Go to <a href="http://cors-anywhere.herokuapp.com/corsdemo" target="_blank" rel="noreferrer">cors-anywhere</a> to authorize your client and for this demo to work.</p>
+    </aside>
+    <p id="vanilla-demo">Let vanilla JS AJAX change this text.</p>
+    <button type="button" onclick="loadDoc()">Change Content w/ JS</button>
+    <h2>jQuery AJAX Fun</h2>
+    <p id="jquery-demo">Let jQuery AJAX change this text.</p>
+    <button id="jquery-btn" type="button">Change Content w/ jQuery</button>
+    <p id="demo3">jQuery with callback function.</p>
+    <p id="demo3-addition"></p>
+    <button id="demo3-btn" type="button">With Callback</button>
+    <p id="demo-get">Get Demo. Check the Console.</p>
+    <button id="demo-get-btn">jQuery Get</button>
+    <script type="application/javascript" src="ajax-fun.js"></script>
+</body>
+</html>

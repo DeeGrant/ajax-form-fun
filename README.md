@@ -1,11 +1,17 @@
 # ajax-form-fun
 
 Originally meant to test out some AJAX functionality, but became a test spot for other tools.
-- AJAX
+- [AJAX](https://www.youtube.com/watch?v=Wl-VvvNCk2A&list=PLWKjhJtqVAbkyK9woUZUtunToLtNGoQHB&index=10)
 - [Mermaid](https://mermaid-js.github.io/mermaid/#/)
 - Go serving static sites
 - Go's [default ServeMux and Handlers](https://www.alexedwards.net/blog/an-introduction-to-handlers-and-servemuxes-in-go)
 - [jQuery](https://www.youtube.com/watch?v=KhtEmR2A1Fw&list=PLWKjhJtqVAbkyK9woUZUtunToLtNGoQHB)
+
+### Run Project
+
+In the terminal run `go run .` form the project directory.
+
+Go to `localhost:8000` in your browser of choice.
 
 ### Learning Lessons
 
