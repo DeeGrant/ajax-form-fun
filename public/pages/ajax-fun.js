@@ -44,16 +44,14 @@ function localGet() {
 
 function localPost() {
     $.post("http://localhost:8000/postStuff",
-        {
+        JSON.stringify({
             things: "Stuff and Things",
             name: "George",
             city: "The Jungle"
-        },
+        }),
         function (data, status) {
-            console.log("Things: " + data.things +
-                "\nName: " + data.name +
-                "\nCity: " + data.city +
-                "\nStatus: " + status)
+            console.log(data)
+            console.log(status)
         });
 }
 
