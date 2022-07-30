@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/gorilla/mux"
 	"log"
 	"net/http"
 	"time"
@@ -31,10 +32,12 @@ func getStuff(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	r := http.NewServeMux()
+	r := mux.NewRouter()
 
 	fileServer := http.FileServer(http.Dir("./public"))
 	r.Handle("/", fileServer)
+	r.PathPrefix("/assets/").Handler(fileServer)
+	r.PathPrefix("/pages/").Handler(fileServer)
 
 	redirectHandler := http.RedirectHandler("https://www.deegrant.com", 307)
 	r.Handle("/deegrant", redirectHandler)
