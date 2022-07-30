@@ -4,17 +4,15 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/gorilla/mux"
-	"io/ioutil"
 	"log"
 	"net/http"
-	"strconv"
 	"time"
 )
 
 type Stuff struct {
-	things string `json:"things"`
-	name   string `json:"name"`
-	city   string `json:"city"`
+	Things string `json:"things"`
+	Name   string `json:"name"`
+	City   string `json:"city"`
 }
 
 var stuffs []Stuff
@@ -43,42 +41,18 @@ func getStuff(w http.ResponseWriter, r *http.Request) {
 }
 
 func postStuff(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("Posting some things...")
-
-	// TODO not working
-	var temp Stuff
-	body, err := ioutil.ReadAll(r.Body)
-	if err != nil {
-		panic(err)
-	}
-	err = json.Unmarshal(body, &temp)
-	fmt.Println(temp)
-	// TODO END not working
-
-	//var someStuff Stuff
-	someStuff := Stuff{things: "thing" + strconv.Itoa(count)}
-	//_ = json.NewDecoder(r.Body).Decode(&someStuff)
-	stuffs = append(stuffs, someStuff)
-	fmt.Println(someStuff)
-	fmt.Println(stuffs)
-
-	//res, _ := json.Marshal(someStuff)
 	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(http.StatusOK)
-	//w.Write(res)
-	err = json.NewEncoder(w).Encode(someStuff) // TODO this isn't working? empty return json
-	if err != nil {
-		panic(err)
-	}
 
-	fmt.Println()
-	count++
+	var stuff Stuff
+	_ = json.NewDecoder(r.Body).Decode(&stuff)
+	stuffs = append(stuffs, stuff)
 
+	json.NewEncoder(w).Encode(stuff)
 }
 
 func main() {
-	stuffs = append(stuffs, Stuff{things: "thing1", name: "Ron", city: "UK"})
-	stuffs = append(stuffs, Stuff{things: "thing2", name: "Smith", city: "Matrix"})
+	stuffs = append(stuffs, Stuff{Things: "thing1", Name: "Ron", City: "UK"})
+	stuffs = append(stuffs, Stuff{Things: "thing2", Name: "Smith", City: "Matrix"})
 	count = 3
 
 	r := mux.NewRouter()
