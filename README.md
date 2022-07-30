@@ -41,4 +41,4 @@ Go to `localhost:8000` in your browser of choice.
 
 ### Todo
 - [Templates in static sites](https://www.alexedwards.net/blog/serving-static-sites-with-go)
-- Marshall and Unmarshall with post?
+- Mux necessary?

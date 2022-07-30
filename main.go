@@ -6,6 +6,7 @@ import (
 	"github.com/gorilla/mux"
 	"log"
 	"net/http"
+	"strconv"
 	"time"
 )
 
@@ -50,6 +51,19 @@ func postStuff(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(stuff)
 }
 
+func formSubmit(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+
+	var stuff Stuff
+	_ = json.NewDecoder(r.Body).Decode(&stuff)
+	stuff.Things = "thing" + strconv.Itoa(count)
+	count++
+	stuffs = append(stuffs, stuff)
+
+	fmt.Println(stuffs)
+	json.NewEncoder(w).Encode(stuffs)
+}
+
 func main() {
 	stuffs = append(stuffs, Stuff{Things: "thing1", Name: "Ron", City: "UK"})
 	stuffs = append(stuffs, Stuff{Things: "thing2", Name: "Smith", City: "Matrix"})
@@ -66,10 +80,9 @@ func main() {
 	r.Handle("/deegrant", redirectHandler)
 
 	r.HandleFunc("/time", timeHandler)
-
 	r.HandleFunc("/getStuff", getStuff)
-
 	r.HandleFunc("/postStuff", postStuff)
+	r.HandleFunc("/formSubmit", formSubmit)
 
 	fmt.Println("Server Running on 8000")
 	log.Fatal(http.ListenAndServe(":8000", r))

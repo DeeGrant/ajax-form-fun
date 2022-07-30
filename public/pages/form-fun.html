@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>AJAX Form Fun</title>
-    <link rel="stylesheet" href="assets/style.css">
+    <title>Form Fun</title>
+    <link rel="stylesheet" href="../assets/style.css">
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -15,16 +15,18 @@
             <li><a href="/pages/form-fun.html">Form Fun</a></li>
         </ul>
     </nav>
-    <h1>AJAX Form Fun</h1>
-    <p>This is a test</p>
-    <h2>The Form is Below</h2>
+    <h1>Form Fun</h1>
     <form>
-        <label for="marco">Marco</label>
-        <input id="marco">
+        <label for="name">Name</label>
+        <input id="name" type="text" name="name">
+        <label for="city">City</label>
+        <input id="city" type="text" name="city">
+        <button type="button">Submit</button>
     </form>
-    <button id="first">Get</button>
-    <button id="second">Submit</button>
-    <h3 id="once">Only Happens once</h3>
-<script type="application/javascript" src="assets/main.js"></script>
+    <section>
+        <h3>Things</h3>
+        <ul id="thing-list"></ul>
+    </section>
+    <script type="application/javascript" src="form-fun.js"></script>
 </body>
 </html>
